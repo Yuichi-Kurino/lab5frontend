@@ -1,0 +1,12 @@
+.signinForm{
+    width:100%;
+}
+
+.signinFormInput{
+    width:200px;
+    height:450px;
+}
+
+.signinFormInput:focus{
+    border-color:green;
+}

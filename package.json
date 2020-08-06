@@ -2,8 +2,10 @@
   "name": "react_crash_todo",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://lab5redo8-4-20.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.1",
+    "query-string": "^6.13.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
