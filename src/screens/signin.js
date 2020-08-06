@@ -38,7 +38,12 @@ export class Signin extends Component{
 
         axios.post('/authenticateUser', this.state)
             .then(response=>{
-                console.log(response);
+                if(!response.data.process){
+                    alert(reponse.data)
+                }else{
+                    alert("authentication failed")
+                }
+                console.log();
             })
             .catch(err =>{
                 console.log(err);
