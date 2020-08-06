@@ -11,15 +11,14 @@ export class Signin extends Component{
         }
     }
 
-    handleChangeNumber = (event =>{
-        console.log(event.target);
+    handleChangeNumber = (event) =>{
         this.setState({email:event.target.value});
-    })
+    };
 
-    handleChangePassword= (event =>{
+    handleChangePassword= (event) =>{
 
         this.setState({password:event.target.value});
-    })
+    };
 
     handleSubmit = async (event) =>{
 
@@ -39,11 +38,10 @@ export class Signin extends Component{
         axios.post('/authenticateUser', this.state)
             .then(response=>{
                 if(!response.data.process){
-                    alert(reponse.data)
+                    this.props.history.push('/userInterface');
                 }else{
                     alert("authentication failed")
                 }
-                console.log();
             })
             .catch(err =>{
                 console.log(err);

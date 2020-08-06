@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import qs from 'querystring';
 import axios from 'axios';
 
-export class Signin extends Component{
+export class UserInterface extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ export class Signin extends Component{
 
 
     render(){
-        if(this.state.add.process){
+        if(this.state.arr.process){
             return(
                 <div>
                     notloggedin
@@ -44,4 +44,4 @@ export class Signin extends Component{
     }
 }
 
-export default Signin;
+export default UserInterface;
