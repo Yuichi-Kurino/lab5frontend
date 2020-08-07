@@ -6,13 +6,13 @@ export class Signin extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            email:'',
+            number:'',
             password:''
         }
     }
 
     handleChangeNumber = (event) =>{
-        this.setState({email:event.target.value});
+        this.setState({number:event.target.value});
     };
 
     handleChangePassword= (event) =>{
@@ -21,20 +21,6 @@ export class Signin extends Component{
     };
 
     handleSubmit = async (event) =>{
-
-        // console.log(qs.stringify(this.state));
-        // const response = await fetch('https://lab5redo8-4-20.herokuapp.com/authenticateUser',{
-        //     method:'POST',
-        //     headers:{
-        //         'Content_Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        //     },
-        //     mode:'no-cors',
-        //     body:qs.stringify(this.state)
-        // });
-        // const str = await response.text();
-        // console.log(this.state);
-        // console.log(JSON.parse(str));
-
         axios.post('/authenticateUser', this.state)
             .then(response=>{
                 if(!response.data.process){

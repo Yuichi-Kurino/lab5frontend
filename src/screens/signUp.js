@@ -1,26 +1,35 @@
 import React, {Component} from 'react';
 import qs from 'querystring';
 import axios from 'axios';
+import "./styles/bootstrap.css";
+
 
 export class SignUp extends Component{
-    handleChangeNumber = (event) =>{
-        this.setState({email:event.target.value});
+    constructor(props) {
+        super(props);
+        this.state = {
+            number:'',
+            password:''
+        }
+    }
+
+    handleInsertNumber = (event) =>{
+        this.setState({number:event.target.value});
     };
 
-    handleChangePassword= (event) =>{
+    handleInsertPassword= (event) =>{
 
         this.setState({password:event.target.value});
     };
 
     handleSubmit = async (event) =>{
 
-
-        axios.post('/authenticateUser', this.state)
+        axios.post('/userSignup', this.state)
             .then(response=>{
                 if(!response.data.process){
                     this.props.history.push('/userInterface');
                 }else{
-                    alert("authentication failed")
+                    alert("Sign Up failed")
                 }
             })
             .catch(err =>{
@@ -29,28 +38,29 @@ export class SignUp extends Component{
         console.log("here");
     };
 
-
     render(){
         return(
-                <form>
-                    <div className="form-group">
-                        <input type="text" className="form-control" id="formGroupExampleInput"
-                               placeholder="WeChat"/>
+            <div className="main">
+                <div className="main_body">
+                    <h1>
+                            Sign Up
+                    </h1>
+                    <div className="form">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <input type="number" className="form-control" id="formGroupExampleInput2"
+                                   placeholder="Number" onChange={this.handleInsertNumber}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="password" className="form-control" id="formGroupExampleInput"
+                                       placeholder="Password" onChange={this.handleInsertPassword}/>
+                            </div>
+                            <input type="submit" value="register" className="reg_button"/>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <input type="number" className="form-control" id="formGroupExampleInput2"
-                               placeholder="Number"/>
-                    </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control" id="formGroupExampleInput"
-                               placeholder="Password"/>
-                    </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control" id="formGroupExampleInput2"
-                               placeholder="Confirm Password"/>
-                        </div>
-                    <input type="submit" value="submit"/>
-                </form>
+                    <button type="button" className="btn btn-link">Sign In</button>
+                </div>
+            </div>
         );
 
     }
