@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import qs from 'querystring';
 import axios from 'axios';
-import "./styles/bootstrap.css";
+import "./styles/signup.css";
 
 
 export class SignUp extends Component{
