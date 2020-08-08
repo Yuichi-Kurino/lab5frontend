@@ -38,6 +38,10 @@ export class SignUp extends Component{
         console.log("here");
     };
 
+    directSignin = (event) => {
+        window.location.href="/signin";
+    }
+
     render(){
         return(
             <div className="main">
@@ -58,7 +62,7 @@ export class SignUp extends Component{
                             <input type="submit" value="register" className="reg_button"/>
                         </form>
                     </div>
-                    <button type="button" className="btn btn-link">Sign In</button>
+                    <button onClick={this.directSignin} className="btn btn-link">Sign In</button>
                 </div>
             </div>
         );

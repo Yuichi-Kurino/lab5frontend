@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import qs from 'querystring';
 import axios from 'axios';
+import ('./styles/signin.css')
 
 export class Signin extends Component{
     constructor(props) {
@@ -40,7 +41,8 @@ export class Signin extends Component{
             <form onSubmit={this.handleSubmit} className="signinForm">
                 <input type="text" className="signinFormInput" placeholder="number" onChange={this.handleChangeNumber}/>
                 <input type="password" className="signinFormInput" placeholder="password" onChange={this.handleChangePassword}/>
-                <input type="submit" value="submit"/>
+                <input type="submit" className="btn login" value="login" />
+                <button type="button" className="btn reg">Sign Up</button>
             </form>
 
         );
