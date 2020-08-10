@@ -21,11 +21,11 @@ export class UserInterface extends Component{
     }
 
     directAddItem = (event) => {
-        window.location.href="/addItem";
+        window.location.href="/?#/addItem";
     }
 
     directEditItem = (event) => {
-        window.location.href="/editItem";
+        window.location.href="/?#/editItem";
     }
 
     render(){

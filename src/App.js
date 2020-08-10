@@ -14,6 +14,7 @@ function App() {
             <Route path="/userInterface" exact render = {(props) =><UserInterface {...props}/>}/>
             <Route path="/signUp" exact render = {(props) =><SignUp {...props}/>}/>
             <Route path="/addItem" exact render = {(props) =><AddItem {...props}/>}/>
+            <Route path="/editItem" exact render = {(props) =><AddItem {...props}/>}/>
         </div>
     );
 }

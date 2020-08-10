@@ -35,13 +35,17 @@ export class Signin extends Component{
         console.log("here");
     };
 
+    directSignUp = (event) => {
+        window.location.href="/?#/signUp";
+    }
+
     render(){
         return(
             <form onSubmit={this.handleSubmit} className="signinForm">
                 <input type="text" className="signinFormInput" placeholder="number" onChange={this.handleChangeNumber}/>
                 <input type="password" className="signinFormInput" placeholder="password" onChange={this.handleChangePassword}/>
                 <input type="submit" className="btn login" value="login" />
-                <button type="button" className="btn reg">Sign Up</button>
+                <button onClick={this.directSignUp} className="btn reg">Sign Up</button>
             </form>
 
         );

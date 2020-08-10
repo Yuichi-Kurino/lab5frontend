@@ -3,11 +3,10 @@ import axios from 'axios';
 import "./styles/signup.css";
 
 
-export class AddItem extends Component{
+export class editItem extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            uid:'',
             itemInfo:''
         }
     }
@@ -15,19 +14,14 @@ export class AddItem extends Component{
     handleInsertItem = (event) =>{
         this.setState({itemInfo:event.target.value});
     };
-
-    handleInsertuid = (event) =>{
-        this.setState({uid:event.target.value});
-    };
-
     handleSubmit = async (event) =>{
-        console.log(this.state);
-        axios.post('/create_order', this.state)
+
+        axios.post('/changeItem', this.state)
             .then(response=>{
-                if(!response.data.process.fail){
-                    this.props.history.push('/userInterface');
+                if(!response.data.process){
+                    this.props.history.push('/editItem');
                 }else{
-                    alert("add item failed")
+                    alert("edit item failed")
                 }
             })
             .catch(err =>{
@@ -45,17 +39,15 @@ export class AddItem extends Component{
             <div className="main">
                 <div className="main_body">
                     <h1>
-                        Add item
+                        Sign Up
                     </h1>
                     <div className="form">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <input type="itemInfo" className="form-control" id="formGroupExampleInput2"
                                        placeholder="item info" onChange={this.handleInsertItem}/>
-                                <input type="uid" className="form-control" id="formGroupExampleInput2"
-                                       placeholder="User Id" onChange={this.handleInsertuid}/>
                             </div>
-                            <input type="submit" value="Add Item" className="reg_button"/>
+                            <input type="submit" value="Edit Item" className="reg_button"/>
                         </form>
                     </div>
                     <button onClick={this.directUserInterface} className="btn btn-link">Submit</button>
@@ -66,4 +58,4 @@ export class AddItem extends Component{
     }
 }
 
-export default AddItem;
+export default editItem;
