@@ -9053,8 +9053,9 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .signinFormInput{
-    width:200px;
-    height:450px;
+    width:100%;
+    height:40px;
+    margin-bottom: 10px;
 }
 
 .signinFormInput:focus{
@@ -9078,4 +9079,8 @@ a.text-dark:hover, a.text-dark:focus {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+}
+
+.button {
+    margin-left: 10%;
 }

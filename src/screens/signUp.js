@@ -26,8 +26,8 @@ export class SignUp extends Component{
 
         axios.post('/userSignup', this.state)
             .then(response=>{
-                if(!response.data.process){
-                    this.props.history.push('/userInterface');
+                if(!response.data.process.fail){
+                    this.props.history.push('/');
                 }else{
                     alert("Sign Up failed")
                 }
