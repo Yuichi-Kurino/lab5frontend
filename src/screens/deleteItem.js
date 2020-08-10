@@ -3,31 +3,26 @@ import axios from 'axios';
 import "./styles/signup.css";
 
 
-export class EditItem extends Component{
+export class DeleteItem extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            itemInfo:'',
             pid:''
         }
     }
 
-    handlechangeitem = (event) =>{
-        this.setState({itemInfo:event.target.value});
-    };
-
-    handlechangepid = (event) =>{
+    handledeleteItem = (event) =>{
         this.setState({pid:event.target.value});
     };
 
     handleSubmit = async (event) =>{
         console.log(this.state);
-        axios.post('/change', this.state)
+        axios.post('/delete', this.state)
             .then(response=>{
                 if(!response.data.process.fail){
                     this.props.history.push('/userInterface');
                 }else{
-                    alert("change item failed")
+                    alert("delete item failed")
                 }
             })
             .catch(err =>{
@@ -45,17 +40,15 @@ export class EditItem extends Component{
             <div className="main">
                 <div className="main_body">
                     <h1>
-                        Edit Item
+                        Delete Item
                     </h1>
                     <div className="form">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <input type="itemInfo" className="form-control" id="formGroupExampleInput2"
-                                       placeholder="item info" onChange={this.handlechangeitem}/>
                                 <input type="uid" className="form-control" id="formGroupExampleInput2"
-                                       placeholder="pid" onChange={this.handlechangepid}/>
+                                       placeholder="pid" onChange={this.handledeleteItem}/>
                             </div>
-                            <input type="submit" value="edit item" className="reg_button"/>
+                            <input type="submit" value="delete item" className="reg_button"/>
                         </form>
                     </div>
                     <button onClick={this.directUserInterface} className="btn btn-link">Submit</button>
@@ -66,4 +59,4 @@ export class EditItem extends Component{
     }
 }
 
-export default EditItem;
+export default DeleteItem;

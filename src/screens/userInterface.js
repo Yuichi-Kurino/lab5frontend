@@ -28,6 +28,10 @@ export class UserInterface extends Component{
         window.location.href="/?#/editItem";
     }
 
+    directDeleteItem = (event) => {
+        window.location.href="/?#/deleteItem";
+    }
+
     render(){
         if(this.state.arr.process){
             return(
@@ -47,6 +51,7 @@ export class UserInterface extends Component{
                     </div>
                     <button onClick={this.directAddItem} className="btn btn-link">Add Item</button>
                     <button onClick={this.directEditItem} className="btn btn-link">Edit Item</button>
+                    <button onClick={this.directDeleteItem} className="btn btn-link">Delete Item</button>
                 </div>
             )
         }

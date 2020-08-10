@@ -5,6 +5,8 @@ import Signin from "./screens/signin"
 import UserInterface from "./screens/userInterface";
 import SignUp from "./screens/signUp";
 import AddItem from "./screens/addItem";
+import EditItem from "./screens/editItem";
+import DeleteItem from "./screens/deleteItem";
 
 function App() {
 
@@ -14,7 +16,8 @@ function App() {
             <Route path="/userInterface" exact render = {(props) =><UserInterface {...props}/>}/>
             <Route path="/signUp" exact render = {(props) =><SignUp {...props}/>}/>
             <Route path="/addItem" exact render = {(props) =><AddItem {...props}/>}/>
-            <Route path="/editItem" exact render = {(props) =><AddItem {...props}/>}/>
+            <Route path="/editItem" exact render = {(props) =><EditItem {...props}/>}/>
+            <Route path="/deleteItem" exact render = {(props) =><DeleteItem {...props}/>}/>
         </div>
     );
 }
