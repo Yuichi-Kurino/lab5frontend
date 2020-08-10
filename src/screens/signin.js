@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import qs from 'querystring';
 import axios from 'axios';
 import ('./styles/signin.css')
 
@@ -36,28 +35,15 @@ export class Signin extends Component{
         console.log("here");
     };
 
-    directSignup = (event) => {
-        window.location.href="/?#/signUp";
-    }
-
     render(){
         return(
-            <div className="main">
-                <div className="main_body">
-                    <h1>
-                        Login
-                    </h1>
-                    <form onSubmit={this.handleSubmit} className="signinForm">
-                        <input type="text" className="signinFormInput" placeholder="number" onChange={this.handleChangeNumber}/>
-                        <input type="password" className="signinFormInput" placeholder="password" onChange={this.handleChangePassword}/>
-                        <br></br>
-                        <div className="buttons">
-                            <input type="submit" className="btn login" value="login" />
-                            <button onClick={this.directSignup} className="btn reg">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <form onSubmit={this.handleSubmit} className="signinForm">
+                <input type="text" className="signinFormInput" placeholder="number" onChange={this.handleChangeNumber}/>
+                <input type="password" className="signinFormInput" placeholder="password" onChange={this.handleChangePassword}/>
+                <input type="submit" className="btn login" value="login" />
+                <button type="button" className="btn reg">Sign Up</button>
+            </form>
+
         );
 
     }

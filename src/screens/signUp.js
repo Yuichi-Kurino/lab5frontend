@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import qs from 'querystring';
 import axios from 'axios';
 import "./styles/signup.css";
 
@@ -26,8 +25,8 @@ export class SignUp extends Component{
 
         axios.post('/userSignup', this.state)
             .then(response=>{
-                if(!response.data.process.fail){
-                    this.props.history.push('/');
+                if(!response.data.process){
+                    this.props.history.push('/userInterface');
                 }else{
                     alert("Sign Up failed")
                 }
@@ -47,13 +46,13 @@ export class SignUp extends Component{
             <div className="main">
                 <div className="main_body">
                     <h1>
-                            Sign Up
+                        Sign Up
                     </h1>
                     <div className="form">
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <input type="number" className="form-control" id="formGroupExampleInput2"
-                                   placeholder="Number" onChange={this.handleInsertNumber}/>
+                                       placeholder="Number" onChange={this.handleInsertNumber}/>
                             </div>
                             <div className="form-group">
                                 <input type="password" className="form-control" id="formGroupExampleInput"

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import qs from 'querystring';
 import axios from 'axios';
 
 export class UserInterface extends Component{
@@ -13,7 +12,7 @@ export class UserInterface extends Component{
     componentDidMount() {
         axios.get('/userInterface')
             .then(response=> {
-                this.setState({arr: response.data})
+                this.setState({arr: response.data});
                 console.log();
             })
             .catch(err =>{
@@ -21,23 +20,35 @@ export class UserInterface extends Component{
             });
     }
 
+    directAddItem = (event) => {
+        window.location.href="/addItem";
+    }
+
+    directEditItem = (event) => {
+        window.location.href="/editItem";
+    }
 
     render(){
         if(this.state.arr.process){
             return(
                 <div>
-                    notloggedin
+                    not logged in
                 </div>
             );
         }else{
             return(
                 <div>
-                    {this.state.arr.map(element=>{
-                        return(<span>{JSON.stringify(element)}</span>)
-                    })
-                    }
+                    <div>
+                        {this.state.arr.map(element=>{
+                            console.log()
+                            return(<div>{JSON.stringify(element)}</div>);
+                        })
+                        }
+                    </div>
+                    <button onClick={this.directAddItem} className="btn btn-link">Add Item</button>
+                    <button onClick={this.directEditItem} className="btn btn-link">Edit Item</button>
                 </div>
-            );
+            )
         }
 
 
